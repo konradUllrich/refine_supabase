@@ -1,5 +1,5 @@
 import { DevtoolsProvider } from "@providers/devtools";
-import { useNotificationProvider } from "@refinedev/antd";
+// import { useNotificationProvider } from "@refinedev/antd";
 import { GitHubBanner, Refine } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import routerProvider from "@refinedev/nextjs-router";
@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Suspense>
-          <GitHubBanner />
+          {/* <GitHubBanner /> */}
           <RefineKbarProvider>
             <AntdRegistry>
               <ColorModeContextProvider defaultMode={defaultMode}>
@@ -43,28 +43,48 @@ export default function RootLayout({
                     routerProvider={routerProvider}
                     authProvider={authProvider}
                     dataProvider={dataProvider}
-                    notificationProvider={useNotificationProvider}
+                    // notificationProvider={useNotificationProvider}
                     resources={[
                       {
-                        name: "blog_posts",
-                        list: "/blog-posts",
-                        create: "/blog-posts/create",
-                        edit: "/blog-posts/edit/:id",
-                        show: "/blog-posts/show/:id",
+                        name: "files",
+                        list: "/files",
+                        create: "/files/create",
+                        edit: "/files/edit/:id",
+                        show: "files/show/:id",
                         meta: {
                           canDelete: true,
                         },
                       },
                       {
-                        name: "categories",
-                        list: "/categories",
-                        create: "/categories/create",
-                        edit: "/categories/edit/:id",
-                        show: "/categories/show/:id",
+                        name: "employees",
+                        list: "/employees",
+                        create: "/employees/create",
+                        edit: "/employees/edit/:id",
+                        show: "employees/show/:id",
                         meta: {
                           canDelete: true,
                         },
                       },
+                      // {
+                      //   name: "blog",
+                      //   list: "/blog-posts",
+                      //   create: "/blog-posts/create",
+                      //   edit: "/blog-posts/edit/:id",
+                      //   show: "/blog-posts/show/:id",
+                      //   meta: {
+                      //     canDelete: true,
+                      //   },
+                      // },
+                      // {
+                      //   name: "categories",
+                      //   list: "/categories",
+                      //   create: "/categories/create",
+                      //   edit: "/categories/edit/:id",
+                      //   show: "/categories/show/:id",
+                      //   meta: {
+                      //     canDelete: true,
+                      //   },
+                      // },
                     ]}
                     options={{
                       syncWithLocation: true,
